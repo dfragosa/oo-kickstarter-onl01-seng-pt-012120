@@ -1,6 +1,6 @@
 require 'pry'
 class Backer
-  attr_reader :name
+  attr_reader :name, :backed_projects
   
   def initialize(name)
     @name = name
@@ -8,17 +8,8 @@ class Backer
     
   end
   
-  def backed_projects
-    @backed_projects
-  end
-  
-  
   def back_project(project)
     backed_projects << project
-    
-     #binding.pry
-   # expects logan.back_project(hoverboard) adds Logan to the backers array
-  end
- 
-  
+    project.backers << self
+   end
 end
